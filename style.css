@@ -4,26 +4,198 @@
    box-sizing: border-box;
  }
 
+ html {
+   scroll-behavior: smooth;
+   scroll-padding-top: 20px;
+ }
+
  body {
-   background-color: #0f0f0f;
-   color: #ffffff;
    font-family: 'Oswald', sans-serif;
+   color: #ffffff;
+   background:
+     linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.9)),
+     url("assets/bg.png") no-repeat center center fixed;
+   background-size: cover;
+   scroll-behavior: smooth;
+   line-height: 1.6;
  }
 
- header {
+ .hero {
+   position: relative;
+   height: 100vh;
+   background: url("assets/bg.png") center center / cover no-repeat fixed;
+   display: flex;
+   align-items: center;
+   justify-content: center;
    text-align: center;
-   padding: 80px 20px 50px;
  }
 
- header h1 {
-   font-size: 3.5rem;
+ .hero-overlay {
+   position: absolute;
+   inset: 0;
+   background: rgba(0, 0, 0, 0.65);
+ }
+
+ .hero-content {
+   position: relative;
+   z-index: 2;
+   animation: fadeUp 1.2s ease forwards;
+ }
+
+ .hero h1 {
+   font-size: 4rem;
    letter-spacing: 4px;
  }
 
- header h2 {
-   margin-top: 10px;
+ .hero h2 {
+   margin: 15px 0 25px;
    color: #d4af37;
-   font-size: 2.2rem;
+   font-size: 2rem;
+ }
+
+ .hero-buttons {
+   display: flex;
+   gap: 15px;
+   justify-content: center;
+   margin-top: 20px;
+ }
+
+ .hero-button {
+   padding: 12px 25px;
+   text-decoration: none;
+   font-weight: bold;
+   border-radius: 5px;
+   transition: 0.3s ease;
+ }
+
+ /* Botão principal */
+ .hero-button.primary {
+   background: #e50914;
+   color: white;
+ }
+
+ .hero-button.primary:hover {
+   background: #b20710;
+   transform: scale(1.05);
+ }
+
+ /* Botão secundário */
+ .hero-button.secondary {
+   border: 2px solid white;
+   color: white;
+ }
+
+ .hero-button.secondary:hover {
+   background: white;
+   color: black;
+   transform: scale(1.05);
+ }
+
+ @keyframes fadeUp {
+   from {
+     opacity: 0;
+     transform: translateY(40px);
+   }
+
+   to {
+     opacity: 1;
+     transform: translateY(0);
+   }
+ }
+
+ section {
+   padding: 100px 0;
+   position: relative;
+ }
+
+ section::after {
+   content: "";
+   position: absolute;
+   bottom: 0;
+   left: 50%;
+   transform: translateX(-50%);
+   width: 60%;
+   height: 1px;
+   background: linear-gradient(to right, transparent, rgba(212, 175, 55, 0.5), transparent);
+ }
+
+ .about {
+   min-height: 100vh;
+   /* ocupa a altura inteira da tela */
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 60px 20px;
+ }
+
+ .about-container {
+   max-width: 800px;
+   margin: auto;
+   text-align: center;
+   line-height: 1.7;
+ }
+
+ .about h2 {
+   margin-bottom: 20px;
+   font-size: 2rem;
+   border-left: 4px solid #d4af37;
+   padding-left: 10px;
+   display: inline-block;
+ }
+
+ .about p {
+   margin-top: 15px;
+   line-height: 1.6;
+   color: #ccc;
+ }
+
+ .highlight-quote {
+   margin-top: 30px;
+   font-size: 1.2rem;
+   font-style: italic;
+   color: #ffffff;
+   line-height: 1.8;
+   padding: 20px 25px;
+   background: #1a1a1a;
+   border-left: 4px solid #d4af37;
+   border-radius: 8px;
+   transition: all 0.8s ease;
+ }
+
+ #about {
+   position: relative;
+   /* necessário para posicionar a seta */
+ }
+
+ .scroll-down {
+   position: absolute;
+   bottom: 30px;
+   left: 50%;
+   transform: translateX(-50%);
+   width: 30px;
+   height: 50px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   cursor: pointer;
+ }
+
+ .scroll-down span {
+   width: 12px;
+   height: 12px;
+   border-right: 3px solid white;
+   border-bottom: 3px solid white;
+   animation: bounce 1.5s infinite;
+ }
+
+ @keyframes bounce {
+   0%, 100% {
+     transform: translateY(0) rotate(45deg);
+   }
+
+   50% {
+     transform: translateY(8px) rotate(45deg);
+   }
  }
 
  .videos {
@@ -34,6 +206,11 @@
    display: grid;
    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
    gap: 25px;
+ }
+
+ .video-grid {
+   max-width: 1200px;
+   margin: auto;
  }
 
  .video-card {
@@ -47,10 +224,94 @@
    transform: translateY(-5px);
  }
 
- .video-card iframe {
+ .video-card {
+   position: relative;
    width: 100%;
-   height: 220px;
-   border-radius: 8px;
+   padding-top: 56.25%;
+   /* 16:9 */
+   background: #1a1a1a;
+   border-radius: 12px;
+   overflow: hidden;
+   transition: 0.3s ease;
+ }
+
+ .video-card iframe {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   border: none;
+ }
+
+ .reveal {
+   opacity: 0;
+   transform: translateY(60px);
+   transition: all 1s ease;
+ }
+
+ .reveal.active {
+   opacity: 1;
+   transform: translateY(0);
+ }
+
+ .youtube-button {
+   text-align: center;
+   margin-top: 40px;
+ }
+
+ .youtube-button a {
+   display: inline-block;
+   padding: 12px 28px;
+   background: linear-gradient(135deg, #d4af37, #b8962e);
+   color: #000;
+   font-weight: 600;
+   text-decoration: none;
+   border-radius: 30px;
+   transition: all 0.3s ease;
+ }
+
+ .youtube-button a:hover {
+   transform: translateY(-3px);
+   box-shadow: 0 10px 20px rgba(212, 175, 55, 0.4);
+ }
+
+ .back-to-top {
+   position: fixed;
+   bottom: 30px;
+   right: 30px;
+   width: 45px;
+   height: 45px;
+   background: rgba(229, 9, 20, 0.9);
+   border-radius: 50%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   text-decoration: none;
+   opacity: 0;
+   visibility: hidden;
+   transition: all 0.3s ease;
+   z-index: 1000;
+ }
+
+ /* Seta feita com CSS */
+ .back-to-top span {
+   width: 10px;
+   height: 10px;
+   border-left: 3px solid white;
+   border-top: 3px solid white;
+   transform: rotate(45deg);
+   margin-top: 5px;
+ }
+
+ .back-to-top.show {
+   opacity: 1;
+   visibility: visible;
+ }
+
+ .back-to-top:hover {
+   transform: translateY(-5px);
+   box-shadow: 0 0 15px rgba(229, 9, 20, 0.6);
  }
 
  footer {
@@ -59,4 +320,27 @@
    background-color: #111;
    font-size: 0.9rem;
    color: #aaa;
+ }
+
+ @media (max-width: 768px) {
+   .hero {
+     background-attachment: scroll;
+   }
+
+   .hero h1 {
+     font-size: 2.5rem;
+   }
+
+   .hero h2 {
+     font-size: 1rem;
+   }
+
+   .videos {
+     padding: 0 5% 40px;
+   }
+
+   .about-container {
+     padding: 0 5%;
+   }
+
  }

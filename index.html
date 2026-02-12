@@ -11,12 +11,49 @@
 
 <body>
 
-  <header>
-    <h1>Jansen Muniz</h1>
-    <h2>Drummer</h2>
+  <header class="hero">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <h1>Jansen Muniz</h1>
+      <h2>Drummer</h2>
+
+      <div class="hero-buttons">
+        <a href="#videos" class="hero-button primary">Assistir Vídeos</a>
+        <a href="#about" class="hero-button secondary">Sobre Mim</a>
+      </div>
+
+    </div>
   </header>
 
-  <section class="videos">
+  <!-- SOBRE -->
+  <section class="about reveal" id="about">
+    <div class="about-container">
+      <h2>Sobre Mim</h2>
+      <p>
+        Sou natural de Santa Cruz do Piauí e desde criança a música já fazia parte da minha vida — comecei batucando em
+        latas antes mesmo de ter contato com uma bateria de verdade.
+
+        Em 2005, tive minha primeira experiência com o instrumento e, desde então, sigo evoluindo. Passei por bandas
+        como Cella 7 e Dona Ângela, tocando Rock e MPB, ampliando minha versatilidade e identidade musical.
+
+        Hoje continuo estudando, produzindo vídeos para o YouTube e participando de eventos, sempre buscando groove,
+        técnica e musicalidade em cada execução.
+      </p>
+
+      <p class="highlight-quote reveal-quote">
+        A bateria é minha forma de expressão.
+        Cada vídeo aqui representa estudo, dedicação e amor pela música.
+      </p>
+    </div>
+
+    <a href="#videos" class="scroll-down">
+      <span></span>
+    </a>
+  </section>
+
+  <!-- VÍDEOS -->
+  <section class="videos reveal" id="videos">
     <div class="video-grid">
 
       <div class="video-card">
@@ -31,13 +68,36 @@
         <iframe src="https://www.youtube.com/embed/HvHClQJNTp8" allowfullscreen></iframe>
       </div>
 
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/XTJc-tZQd4Y" allowfullscreen></iframe>
+      </div>
+
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/uvpfov_-4-Q" allowfullscreen></iframe>
+      </div>
+
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/z2W-sfPN0KU" allowfullscreen></iframe>
+      </div>
+
     </div>
   </section>
+
+  <div class="youtube-button">
+    <a href="https://www.youtube.com/@JansenMuniz" target="_blank">
+      Ver mais no YouTube
+    </a>
+  </div>
 
   <footer>
     © 2026 Jansen Muniz
   </footer>
 
+  <a href="#" class="back-to-top">
+    <span></span>
+  </a>
+
+  <script src="script.js"></script>
 </body>
 
 </html>
