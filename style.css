@@ -103,6 +103,31 @@
    }
  }
 
+ .btn-influencias {
+   display: inline-flex;
+   /* não quebra layout */
+   align-items: center;
+   justify-content: center;
+
+   padding: 10px 24px;
+   font-size: 0.95rem;
+
+   background: #e50914;
+   color: #fff;
+   text-decoration: none;
+
+   border-radius: 25px;
+   font-weight: 600;
+
+   transition: all 0.3s ease;
+ }
+
+ .btn-influencias:hover {
+   background: #ff1f2f;
+   transform: translateY(-3px);
+ }
+
+
  section {
    padding: 100px 0;
    position: relative;
@@ -198,55 +223,71 @@
    }
  }
 
- #influencias {
-   padding: 80px 20px;
+ .influencias {
+   padding: 80px 10%;
    background: #111;
+   /* Fundo da seção */
    color: white;
  }
 
  .section-title {
    text-align: center;
    font-size: 2rem;
-   margin-bottom: 50px;
+   margin-bottom: 60px;
  }
 
- .influencias-container {
-   max-width: 1000px;
-   margin: 0 auto;
+ .section-intro {
+   max-width: 800px;
+   margin: 0 auto 60px auto;
+   text-align: center;
+   font-size: 1.1rem;
+   line-height: 1.7;
+   color: #ccc;
  }
 
- .influencia-card {
+ .baterista-card {
    display: flex;
    align-items: center;
-   gap: 30px;
+   gap: 40px;
+   /* Mais espaço entre imagem e texto */
    background: #1a1a1a;
-   padding: 25px;
-   border-radius: 10px;
-   margin-bottom: 30px;
-   transition: 0.3s ease;
+   /* Fundo do card */
+   padding: 30px;
+   border-radius: 16px;
+   /* Bordas mais suaves */
+   margin-bottom: 40px;
+   /* Espaço entre os cards */
+   transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
  }
 
- .influencia-card:hover {
-   transform: translateY(-5px);
-   box-shadow: 0 0 20px rgba(229, 9, 20, 0.3);
+ .baterista-card:hover {
+   transform: translateY(-8px) scale(1.02);
+   /* Subir + leve zoom */
+   box-shadow: 0 20px 40px rgba(229, 9, 20, 0.5);
+   /* Glow vermelho */
+   background: #222;
+   /* Leve destaque de fundo */
  }
 
- .influencia-img img {
-   width: 200px;
-   height: 200px;
+ .baterista-card img {
+   width: 250px;
+   height: 250px;
    object-fit: cover;
-   border-radius: 10px;
+   border-radius: 16px;
+   /* bordas iguais ao card */
+   flex-shrink: 0;
  }
 
- .influencia-info h3 {
-   font-size: 1.5rem;
-   margin-bottom: 5px;
+ .baterista-info h3 {
+   font-size: 1.8rem;
+   /* Título mais destacado */
+   margin-bottom: 10px;
  }
 
- .estilo {
-   color: #e50914;
-   font-weight: bold;
-   margin-bottom: 15px;
+ .baterista-info p {
+   line-height: 1.6;
+   margin-bottom: 20px;
+   color: #ccc;
  }
 
  .videos {
@@ -394,13 +435,15 @@
      padding: 0 5%;
    }
 
-   .influencia-card {
+   .baterista-card {
      flex-direction: column;
      text-align: center;
+     gap: 20px;
+     padding: 25px;
    }
 
-   .influencia-img img {
-     width: 150px;
-     height: 150px;
+   .baterista-card img {
+     width: 200px;
+     height: 200px;
    }
  }
